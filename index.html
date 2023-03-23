@@ -4,14 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snorlax</title>
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="app.css">
  
 </head>
 <body>
-   <h1>Snorlax</h1>
-    <ul id="snorlaxData"</ul>
 
+    <header>
+         <h1>Pokemon Data App</h1>
+    </header>
 
-           <script src="app.js"></script>
+     <main>
+        <section id="pokeInfo" class="grid-container"></section>
+    </main>
+
+    <dialog id="dialog-pokemon">
+            <section class="dialog-grid">
+                <image id="image" src="">
+                <article>
+                    <p>#<span id="dexIndex"></span></p>
+                    <h2 id="name"></h2>
+                    <h3>Type: <span id="type"></span></h3>
+                    <p>Ability: <span id="abilities"></span></p>
+                    <p id="description"></p>
+                    <p>Weaknesses <span id="weakness"></span></p>
+                    <section>
+                        <h4>Personal info</h4>
+                        <ul>
+                            <li>Weight: <span id="weight"></span>kg</li>
+                            <li>Height: <span id="height"></span>cm</li>
+                            <li>Gender: <span id="gender"></span></li>
+                            <li>Generation: <span id="generation"></span></li>
+                            <li>spilversion: <span id="spilversion"></span></li>
+                            <li>Can evolve? <span id="canEvolve"></span></li>
+                            <li>Footprint: <span id="footprint"></span></li>
+                        </ul>
+                    </section>
+
+                            <ul>
+                            <li>Hp: <span id="statsHp"></span></li>
+                            <li>Attack: <span id="statsattack"></span></li>
+                            <li>Defence: <span id="statsDefence"></span></li>
+                            <li>Special Attack: <span id="statsSpecialAttack"></span></li>
+                            <li>Special Defence: <span id="statsSpecialDefence"></span></li>
+                            <li>Speed: <span id="statsSpeed"></span></li>
+                        </ul>
+                           </article>
+            </section>
+            <form method="dialog">
+                <button>Close</button>
+            </form>
+        </dialog>
+    <footer>Copyright by Yousra Diab</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

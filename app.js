@@ -1,57 +1,104 @@
 "use strict";
 
-const snorlax = {
-  name: "Snorlax",
-  description:
-    "It is not satisfied unless it eats over 880 pounds of food every day. When it is done eating, it goes promptly to sleep.",
-  abilities: "Thick Fat, Immunity",
-  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png",
-  footprint: "undefined",
-  dexindex: 143,
-  type: "normal",
-  subtype: "undefined",
-  weaknesses: "Fighting",
-  gender: "male and female",
-  weight: 459,
-  height: 210,
-  generation: 2,
-  spilversion: "undefined",
-  canEvolve: true,
-  statsHp: 10,
-  statsattack: 7,
-  statsDefence: 4,
-  statsSpecialAttack: 4,
-  statsSpecialDefence: 7,
-  statsSpeed: 2,
-};
+window.addEventListener("load", initApp);
+
+
+async function initApp() {
+    const snorlax = await getCharacter("data/pokemon.json");
+    showPokemon(snorlax);
+
+}
+
+async function getCharacter (url) {
+const response = await fetch (url);
+const data = response.json();
+return data;
+
+}
 
 function showPokemon(pokemon) {
   const pokemonHTML = /*html*/ `
-<li>The Pokemon name is: ${pokemon.name}</li>
-<li>${pokemon.description}</li>
+  <section class = "grid-item">
+<p>The Pokemon name is ${pokemon.name}</p>
 <img src= "${pokemon.image}">
-<li> abilities:${pokemon.abilities}</li>
-<li>The footprint is: ${pokemon.footprint}</li>
-<li>dexindex: ${pokemon.dexindex}</li>
-<li>type: ${pokemon.type}</li>
-<li>subtype: ${pokemon.subtype}</li>
-<li>weaknesses:${pokemon.weaknesses}</li>
-<li>gender: ${pokemon.gender}</li>
-<li>weight: ${pokemon.weight}</li>
-<li>height: ${pokemon.height}</li>
-<li>generation: ${pokemon.generation}</li>
-<li>spilversion is: ${pokemon.spilversion}</li>
-<li> ${pokemon.name} can evolve: ${pokemon.canEvolve} </li>
-<li>statsHp: ${pokemon.statsHp}</li>
-<li>statsattack: ${pokemon.statsattack}</li>
-<li>statsDefence: ${pokemon.statsDefence}</li>
-<li>statsSpecialAttack: ${pokemon.statsSpecialAttack}</li>
-<li>statsSpecialDefence: ${pokemon.statsSpecialDefence}</li>
-<li>statsSpeed: ${pokemon.statsSpeed}</li> 
+<p>${pokemon.description}</p>
+
+<p> 
+</section>
+`;
+
+document
+  .querySelector("#pokeInfo")
+  .insertAdjacentHTML("beforeend", pokemonHTML);
+        document
+          .querySelector("#pokeInfo section:last-child")
+          .addEventListener("click", pokemonClicked);
+
+function pokemonClicked() {
+  showPokemonModal(pokemon);
+}
+
+}
+
+
+
+function showPokemonModal(pokemon) {
+    document.querySelector("#image").src = pokemon.image;
+    document.querySelector("#dexIndex").textContent = pokemon.dexIndex;
+    document.querySelector("#footprint").textContent = pokemon.footprint;
+    document.querySelector("#name").textContent = pokemon.name;
+    document.querySelector("#type").textContent = pokemon.type;
+    document.querySelector("#abilities").textContent = pokemon.abilities;
+    document.querySelector("#description").textContent = pokemon.description;
+    document.querySelector("#weakness").textContent = pokemon.weaknesses;
+    document.querySelector("#weight").textContent = pokemon.weight;
+    document.querySelector("#height").textContent = pokemon.height;
+    document.querySelector("#gender").textContent = pokemon.gender;
+    document.querySelector("#generation").textContent = pokemon.generation;
+    document.querySelector("#spilversion").textContent = pokemon.spilversion;
+    document.querySelector("#canEvolve").textContent = pokemon.canEvolve;
+    document.querySelector("#statsHp").textContent = pokemon.statsHp;
+    document.querySelector("#statsattack").textContent = pokemon.statsattack;
+    document.querySelector("#statsDefence").textContent = pokemon.statsDefence;
+    document.querySelector("#statsSpecialAttack").textContent = pokemon.statsSpecialAttack;
+    document.querySelector("#statsSpecialDefence").textContent = pokemon.statsSpecialDefence;
+    document.querySelector("#statsSpeed").textContent = pokemon.statsSpeed;
+    
+    document.querySelector("#dialog-pokemon").showModal();
+ 
+}
+
+function addPokemon(pokemon) {
+  const pokemonHTML = /*html*/ `
+<p>The Pokemon name is: ${pokemon.name}</p>
+<p>${pokemon.description}</p>
+<img src= "${pokemon.image}">
+<p> abipties:${pokemon.abipties}</p>
+<p>The footprint is: ${pokemon.footprint}</p>
+<p>dexindex: ${pokemon.dexindex}</p>
+<p>type: ${pokemon.type}</p>
+<p>subtype: ${pokemon.subtype}</p>
+<p>weaknesses:${pokemon.weaknesses}</p>
+<p>Snorlax can be ${pokemon.gender}</p>
+<p>weight: ${pokemon.weight}</p>
+<p>height: ${pokemon.height}</p>
+<p>generation: ${pokemon.generation}</p>
+<p>spilversion is ${pokemon.spilversion}</p>
+<p> ${pokemon.name} can evolve: ${pokemon.canEvolve} </p>
+<p>statsHp: ${pokemon.statsHp}</p>
+<p>statsattack: ${pokemon.statsattack}</p>
+<p>statsDefence: ${pokemon.statsDefence}</p>
+<p>statsSpecialAttack: ${pokemon.statsSpecialAttack}</p>
+<p>statsSpecialDefence: ${pokemon.statsSpecialDefence}</p>
+<p>statsSpeed: ${pokemon.statsSpeed}</p> 
 `;
   document
-    .querySelector("#snorlaxData")
+    .querySelector("#pokeInfo")
     .insertAdjacentHTML("beforeend", pokemonHTML);
 }
 
-showPokemon(snorlax);
+
+
+
+
+ 
