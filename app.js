@@ -46,7 +46,7 @@ function pokemonClicked() {
 
 function showPokemonModal(pokemon) {
     document.querySelector("#image").src = pokemon.image;
-    document.querySelector("#dexIndex").textContent = pokemon.dexIndex;
+    document.querySelector("#dexindex").textContent = pokemon.dexindex;
     document.querySelector("#footprint").textContent = pokemon.footprint;
     document.querySelector("#name").textContent = pokemon.name;
     document.querySelector("#type").textContent = pokemon.type;

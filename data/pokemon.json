@@ -3,7 +3,7 @@
   "description": "Snorlax is not satisfied unless it eats over 880 pounds of food every day. When it is done eating, it goes promptly to sleep.",
   "ability": "Thick Fat, Immunity",
   "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png",
-  "dexIndex": 143,
+  "dexindex": 143,
   "type": "normal",
   "weaknesses": "Fighting",
   "gender": "male and female",
