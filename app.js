@@ -4,10 +4,16 @@ window.addEventListener("load", initApp);
 
 
 async function initApp() {
-    const pokemon = await getCharacter(
+    const pokemons = await getCharacter(
       "https://cederdorff.github.io/dat-js/05-data/pokemons.json"
     );
-    pokemon.forEach(showPokemon);
+
+  
+    // pokemon.forEach(showPokemon);
+
+      for (const pokemon of pokemons) {
+        showPokemon(pokemon)
+      }
 
 }
 
