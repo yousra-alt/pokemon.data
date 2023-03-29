@@ -29,7 +29,6 @@ function showPokemon(pokemon) {
   <section class = "grid-item">
 <p>The Pokemon name is ${pokemon.name}</p>
 <img src= "${pokemon.image}">
-<p>${pokemon.description}</p>
 
 <p> 
 </section>
