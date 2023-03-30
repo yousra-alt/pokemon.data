@@ -36,9 +36,7 @@ a {
   cursor: pointer;
 }
 
-p {
-    text-align: center;
-}
+
 img {
   width: 100%;
   height: auto;
@@ -115,10 +113,12 @@ main {
   animation: fadeIn 0.5s;
   cursor: pointer;
   border-radius: 20px;
+  box-shadow: 0px 3px 10px 0px rgba(155, 168, 101, 0.636) inset;
 }
 
 .grid-item:hover {
-  box-shadow: rgb(56, 104, 99)
+  box-shadow: 0px 5px 10px 0px rgba(150, 139, 193, 0.878);
+
 }
 
 .grid-item img {
@@ -170,6 +170,9 @@ button {
 
 /* ---------- dialog styling ---------- */
 
+form {
+  margin: 0px;
+}
 dialog {
   border-color:rgba(168, 123, 123, 0.588);
   background-color: rgb(176, 140, 230);
@@ -177,6 +180,7 @@ dialog {
   height: 50vw;
   padding: 0.5em 0.5em;
 border-radius: 30px;
+margin-top: 0;
 
 }
 
@@ -186,9 +190,24 @@ dialog::backdrop {
 
 .dialog-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: "a b";
+  gap: 5px;
 }
 
+#dialog-img-div {
+  border: 0px outset;
+  grid-area: a;
+}
+
+#dialog-info-div {
+  border: 5px black;
+  grid-area: b;
+}
+
+dialog img {
+  margin: 0.5em 0 1em;
+  width: 200px;
+}
 dialog h4 {
   margin-bottom: 0;
 }

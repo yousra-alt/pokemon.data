@@ -4,7 +4,7 @@ window.addEventListener("load", initApp);
 
 
 async function initApp() {
-    const pokemons = await getCharacter(
+    const pokemons = await getPokemon(
       "https://cederdorff.github.io/dat-js/05-data/pokemons.json"
     );
 
@@ -17,14 +17,15 @@ async function initApp() {
 
 }
 
-async function getCharacter (url) {
-const response = await fetch (url);
-const data = response.json();
-return data;
-
+async function getPokemon (url) {
+  // Fetch and parse JSON
+  const response = await fetch(url);
+  const data = response.json();
+  return data;
 }
 
 function showPokemon(pokemon) {
+  // Create HTML grid items from parsed data
   const pokemonHTML = /*html*/ `
   <section class = "grid-item">
 <p> ${pokemon.name}</p>
@@ -53,7 +54,6 @@ function pokemonClicked() {
 function showPokemonModal(pokemon) {
     document.querySelector("#image").src = pokemon.image;
     document.querySelector("#dexindex").textContent = pokemon.dexindex;
-    document.querySelector("#footprint").textContent = pokemon.footprint;
     document.querySelector("#name").textContent = pokemon.name;
     document.querySelector("#type").textContent = pokemon.type;
     document.querySelector("#ability").textContent = pokemon.abilities;
@@ -82,7 +82,6 @@ function addPokemon(pokemon) {
 <p>${pokemon.description}</p>
 <img src= "${pokemon.image}">
 <p> ability:${pokemon.ability}</p>
-<p>The footprint is: ${pokemon.footprint}</p>
 <p>dexindex: ${pokemon.dexindex}</p>
 <p>type: ${pokemon.type}</p>
 <p>subtype: ${pokemon.subtype}</p>
