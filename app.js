@@ -27,8 +27,9 @@ return data;
 function showPokemon(pokemon) {
   const pokemonHTML = /*html*/ `
   <section class = "grid-item">
-<p>The Pokemon name is ${pokemon.name}</p>
+<p> ${pokemon.name}</p>
 <img src= "${pokemon.image}">
+<p>${pokemon.type}</p>
 
 <p> 
 </section>
